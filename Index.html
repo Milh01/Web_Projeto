@@ -1,72 +1,105 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Página </title>
-  <style>
-   body{
-		font-family: Arial, sans-serif;
-		margin: 0;
-		padding: 0;
-text-align: center;
-	}
-	header{
-		background-color: #808080;
-		color: white;
-		paddig: 20px;
-		text-align: center;
-    main{
-    	padding: 20px;
-    }
-    footer{
-    	background-color: #333;
-    	color: white;
-    	text-align: center;
-    	padding: 10px;
-    	position: fixed;
-    	bottom: 0;
-    	width: 100%;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Página de Consultas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 50px;
+        }
     </style>
 </head>
-
 <body>
-	<header>
-		<h1>Página</h1>
-	</header>
-<main>  
-<h2>
-    Consulta
-  </h2>
-<textarea rows="5" cols="33">
-</textarea>
-<section>
-	<button type="submit">Enviar
-	
-</section>
-	
-<p>
-<h2>
-    Resultado
-  </h2>
-<p>
-<textarea rows="5" cols="33">
-</textarea>
 
+<header>
+    <h1>Consulta de Usuários</h1>
+    <p>Insira o nome ou ID do usuário para realizar a consulta.</p>
+</header>
 
+<main>
+    <div class="form-container">
+        <form id="consultaForm">
+            <label for="consulta">Nome ou ID do usuário:</label>
+            <input type="text" id="consulta" name="consulta" placeholder="Digite o nome ou ID">
+            <button type="submit">Consultar</button>
+        </form>
 
+        <div id="result"/div>
+        </div>
+    </div>
 </main>
-  <h3>
-    pipipi popopo.
-  </h3>
-<footer>
-	2024
-</footer>
-  <script src="script.js"></script>
-</body>
 
+<footer>
+    <p>Contatos: suporte@bolinha.com | Telefone: 123455 </p>
+</footer>
+
+<script>
+    document.getElementById("consultaForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var consulta = document.getElementById("consulta").value;
+
+        if (consulta) {
+            document.getElementById("result").innerText = "Resultados para: " + consulta;
+        } else {
+            document.getElementById("result").innerText = "Por favor, insira um nome ou ID válido.";
+        }
+    });
+</script>
+
+</body>
 </html>
